@@ -1,46 +1,115 @@
-const Game = ({ information }) => {
-  let threeNumbers = randomNumbers(information);
-  console.log(threeNumbers);
+import { useEffect, useState } from "react";
+import Interaction from "../MovieCards/Interaction";
+import Button from "../Reusable-code/Button";
+import Answer from "./Answer";
+
+const Game = ({ information, onToggle }) => {
+  const [threeNumbers, setThreeNumbers] = useState();
+  const [question, setQuestion] = useState();
+  let [nextQuestion, setNextQuestion] = useState(0);
+  let [score, setScore] = useState(0);
+  let [trackAnswers, setTrackAnswers] = useState(["", "", ""]);
+
+  useEffect(() => {
+    if (information && information.length > 0) {
+      const randomNumbersArray = randomNumbers(information);
+      setThreeNumbers(randomNumbersArray);
+      setQuestion(information[randomNumbersArray[randomIndex()]]);
+    }
+  }, [nextQuestion]);
+
   function randomNumbers(array) {
-    return [
-      Math.floor(Math.random() * array.length),
-      Math.floor(Math.random() * array.length),
-      Math.floor(Math.random() * array.length),
-    ];
+    let arr = [];
+    while (arr.length < 3) {
+      let newRandomInt = Math.floor(Math.random() * array.length);
+      if (!arr.includes(newRandomInt)) {
+        arr.push(newRandomInt);
+      }
+    }
+    return arr;
   }
+
+  const onNextQuestion = () => {
+    let add = nextQuestion + 1;
+
+    const _trackAnswers = trackAnswers.map((item, i) => {
+      return "";
+    });
+    setTrackAnswers(_trackAnswers);
+    setNextQuestion(add);
+  };
 
   const randomIndex = () => {
     return Math.floor(Math.random() * 3);
   };
 
+  const onCheck = (e, index) => {
+    if (e.title === question.title) {
+      let _score = score + 1;
+      setScore(_score);
+      const _trackAnswers = trackAnswers.map((item, i) => {
+        if (i === index) {
+          return "true";
+        } else {
+          return "";
+        }
+      });
+      setTrackAnswers(_trackAnswers);
+    } else if (e.title !== question.title) {
+      const _trackAnswers = trackAnswers.map((item, i) => {
+        if (i === index) {
+          return "wrong";
+        } else {
+          return "";
+        }
+      });
+      setTrackAnswers(_trackAnswers);
+    } else {
+      console.log("something went wrong with the game");
+    }
+  };
+
+  if (!question || threeNumbers.length === 0) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="containerGame">
-      <p className="question">
-        {information[threeNumbers[randomIndex()]].summary}
-      </p>
-      <div className="containerAnswers">
-        <div className="answerOne answer">
-          <p>{information[threeNumbers[0]].title}</p>
-          <img
-            src={information[threeNumbers[0]].image}
-            alt={information[threeNumbers[0]].title}
-          />
-        </div>
-        <div className="answerTwo answer">
-          <p>{information[threeNumbers[1]].title}</p>
-          <img
-            src={information[threeNumbers[1]].image}
-            alt={information[threeNumbers[1]].title}
-          />
-        </div>
-        <div className="answerThree answer">
-          <p>{information[threeNumbers[2]].title}</p>
-          <img
-            src={information[threeNumbers[2]].image}
-            alt={information[threeNumbers[2]].title}
-          />
-        </div>
+      <p className="score">Your score: {score}</p>
+      <div className="containerQuestion">
+        <Interaction
+          love={question.love}
+          wantToWatch={question.wantToWatch}
+          watched={question.watched}
+          onToggle={onToggle}
+          id={question.movieId}
+        />
+        <p className="question">{question.summary}</p>
       </div>
+      <div className="containerAnswers">
+        <Answer
+          className="answerOne"
+          onCheck={onCheck}
+          info={information[threeNumbers[0]]}
+          index={0}
+          animation={trackAnswers}
+        />
+        <Answer
+          className="answerTwo"
+          onCheck={onCheck}
+          info={information[threeNumbers[1]]}
+          index={1}
+          animation={trackAnswers}
+        />
+        <Answer
+          className="answerThree"
+          onCheck={onCheck}
+          info={information[threeNumbers[2]]}
+          index={2}
+          animation={trackAnswers}
+        />
+      </div>
+      <Button text="Next" onClick={onNextQuestion} className={"next"} />
     </div>
   );
 };

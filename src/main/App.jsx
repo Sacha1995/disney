@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Game from "./Game/Game";
-import HeaderMovie from "./Header/HeaderMovie";
+import HeaderMovie from "./Header/Header";
 import Movies from "./MovieCards/Movies";
 import Buttons from "./Navigation/Buttons";
 
@@ -20,7 +20,7 @@ function App() {
 
   const onFormEvent = (e) => {
     const { value, id } = e.target;
-    setFormElement({ [id]: value });
+    setFormElement({ ...formElement, [id]: value });
     console.log(e);
   };
 
@@ -34,7 +34,6 @@ function App() {
         item.wantToWatch = false;
         item.love = false;
       });
-      console.log(data);
       setDisneyMovies(data);
     } catch (e) {
       setError("API DOWN");
@@ -188,15 +187,16 @@ function App() {
 
   return (
     <>
-      {nav.movies && (
-        <HeaderMovie
-          information={getFilteredAndSorted()}
-          callback={onFormEvent}
-        />
-      )}
+      <HeaderMovie
+        information={getFilteredAndSorted()}
+        callback={onFormEvent}
+        nav={nav}
+      />
       <h1>Disney Classics</h1>
       <Buttons onNav={onNav} />
-      {nav.game && <Game information={getFilteredAndSorted()} />}
+      {nav.game && (
+        <Game information={getFilteredAndSorted()} onToggle={onToggle} />
+      )}
       {formElement.searchStr !== "" && !filteredList.length && (
         <p className="message">There are no matches.</p>
       )}

@@ -4,8 +4,8 @@ import Button from "../Reusable-code/Button";
 const Buttons = ({ onNav }) => {
   return (
     <div className="containerBtn">
-      <Button text="Game" onNav={onNav} />
-      <Button text="Movies" onNav={onNav} />
+      <Button text="Game" onClick={onNav} />
+      <Button text="Movies" onClick={onNav} />
     </div>
   );
 };

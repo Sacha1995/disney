@@ -126,10 +126,18 @@ ul {
   padding: 5px 10px;
   min-width: 100px;
   border-radius: 10px;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.btn:hover {
+  box-shadow: 0 0 20px 5px #a5e7ff;
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .containerGame {
-  .question {
+  .containerQuestion {
     max-width: 450px;
     margin: 20px auto;
     padding: 10px 20px 20px 20px;
@@ -139,12 +147,27 @@ ul {
   }
 
   .answer {
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
     max-width: 100px;
     margin: 10px;
     padding: 10px 20px 20px 20px;
     border: white 2px solid;
     border-radius: 20px;
+    box-shadow: none;
+    transition: box-shadow 0.3s ease-in-out;
     background: linear-gradient(0deg, rgba(17, 69, 150, 0.8) 23%, rgba(7, 11, 48, 0.8) 88%);
+
+    p {
+      margin-bottom: 10px;
+    }
+  }
+
+  .answer:hover {
+    box-shadow: 0 0 30px 5px #a5e7ff;
+    transition: box-shadow 0.3s ease-in-out;
   }
 
   img {
@@ -155,6 +178,65 @@ ul {
 .containerAnswers {
   display: flex;
   justify-content: center;
+}
+
+.containerQuestion {
+  .interaction {
+    width: fit-content;
+    margin-left: auto;
+    display: block;
+
+    img {
+      height: 30px;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+
+    .love {
+      height: 25px;
+      margin-bottom: 3px;
+    }
+  }
+}
+
+.next {
+  margin: 0px auto;
+  display: block;
+}
+
+.true {
+  position: relative;
+}
+
+.wrong {
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
 
 /*
