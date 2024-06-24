@@ -1,0 +1,209 @@
+/*
+**************************
+        fonts
+**************************
+*/
+@font-face {
+  font-family: "Disney";
+  src: url("./font/waltograph42.woff2");
+}
+@font-face {
+  font-family: "Disney2";
+  src: url("./font/waltographUI.woff2");
+}
+/*
+************END***********
+*/
+/*
+**************************
+        general
+**************************
+*/
+* {
+  margin: 0px;
+  font-family: "poppins", sans-serif;
+  color: white;
+  font-size: 16px;
+}
+
+body {
+  background-image: url("./img/background.jpg");
+  background-attachment: fixed;
+}
+
+h1 {
+  font-family: "Disney";
+  letter-spacing: 2px;
+  font-size: 50px;
+  font-weight: 100;
+  line-height: 47px;
+  text-align: center;
+}
+
+/*
+************END***********
+*/
+/*
+**************************
+        header
+**************************
+*/
+.containerHeader {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  gap: 10px;
+}
+
+.containerCounters {
+  text-shadow: 0px 0px 8px black;
+  cursor: pointer;
+  flex-basis: 50%;
+}
+
+.comeDown {
+  height: 10px;
+}
+
+.containerFilter {
+  flex-basis: 50%;
+}
+
+input,
+select,
+option {
+  color: black;
+}
+
+select,
+input {
+  padding: 3px;
+  border-radius: 5px;
+}
+
+input {
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+ul {
+  animation: slide-in 2s fade-in;
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/*
+************END***********
+*/
+/*
+**************************
+        game
+**************************
+*/
+.containerBtn {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  background: darkred;
+  margin: 20px 10px 10px 10px;
+  padding: 5px 10px;
+  min-width: 100px;
+  border-radius: 10px;
+}
+
+.containerGame .question {
+  max-width: 450px;
+  margin: 20px auto;
+  padding: 10px 20px 20px 20px;
+  border: white 2px solid;
+  border-radius: 20px;
+  background: linear-gradient(0deg, rgba(17, 69, 150, 0.8) 23%, rgba(7, 11, 48, 0.8) 88%);
+}
+.containerGame .answer {
+  max-width: 100px;
+  margin: 10px;
+  padding: 10px 20px 20px 20px;
+  border: white 2px solid;
+  border-radius: 20px;
+  background: linear-gradient(0deg, rgba(17, 69, 150, 0.8) 23%, rgba(7, 11, 48, 0.8) 88%);
+}
+.containerGame img {
+  height: 150px;
+}
+
+.containerAnswers {
+  display: flex;
+  justify-content: center;
+}
+
+/*
+************END***********
+*/
+/*
+**************************
+        movie cards
+**************************
+*/
+.movieCard {
+  max-width: 450px;
+  position: relative;
+  margin: 20px auto;
+  padding: 10px 20px 20px 20px;
+  border: white 2px solid;
+  border-radius: 20px;
+  background: linear-gradient(0deg, rgba(17, 69, 150, 0.8) 23%, rgba(7, 11, 48, 0.8) 88%);
+}
+.movieCard H2 {
+  font-family: "Disney";
+  letter-spacing: 2px;
+  font-size: 50px;
+  font-weight: 100;
+  line-height: 50px;
+  max-width: 350px;
+}
+.movieCard .interaction {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+.movieCard .interaction .control {
+  height: 30px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.movieCard .interaction .love {
+  height: 25px;
+  margin-bottom: 3px;
+}
+
+.containerInfo {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+.containerInfo .year {
+  margin-bottom: 10px;
+}
+.containerInfo img {
+  height: 150px;
+  border: white 1px solid;
+  align-self: center;
+  margin-top: 50px;
+}
+.containerInfo .rating {
+  text-decoration: underline;
+}
+
+/*
+************END***********
+*//*# sourceMappingURL=App.css.map */
