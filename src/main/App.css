@@ -155,6 +155,7 @@ ul {
 }
 .containerGame .answer p {
   margin-bottom: 10px;
+  text-align: center;
 }
 .containerGame .answer:hover {
   box-shadow: 0 0 30px 5px #a5e7ff;
@@ -281,6 +282,14 @@ ul {
 }
 .containerInfo .rating {
   text-decoration: underline;
+  display: inline;
+}
+
+.star {
+  fill: white;
+  display: inline;
+  height: 30px;
+  width: 30px;
 }
 
 /*

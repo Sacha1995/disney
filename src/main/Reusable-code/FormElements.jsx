@@ -26,7 +26,7 @@ const FormElements = ({
     case "select":
       return (
         <>
-          <label htmlFor={name}>{label} </label>
+          <label htmlFor={id}>{label} </label>
           <select id={id} name={name} onChange={callback}>
             {options.map((option) => {
               return (

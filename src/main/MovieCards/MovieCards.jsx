@@ -1,6 +1,6 @@
 import Image from "./Image";
 import Interaction from "./Interaction";
-import Rating from "./Rating";
+import Ratings from "./Ratings";
 import Summary from "./Summary";
 import Title from "./Title";
 import Year from "./Year";
@@ -31,7 +31,7 @@ const MovieCards = (item) => {
         <div className="containerInfoText">
           <Title title={title} />
           <Year year={year} />
-          <Rating rating={rating} />
+          <Ratings rating={rating} />
           <Summary summary={summary} />
         </div>
       </div>

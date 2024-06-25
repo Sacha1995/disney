@@ -164,8 +164,10 @@ ul {
     transition: box-shadow 0.3s ease-in-out;
     background: linear-gradient(0deg, rgba(17, 69, 150, 0.8) 23%, rgba(7, 11, 48, 0.8) 88%);
 
+
     p {
       margin-bottom: 10px;
+      text-align: center;
     }
   }
 
@@ -319,7 +321,17 @@ ul {
 
   .rating {
     text-decoration: underline;
+    display: inline;
   }
+}
+
+
+.star {
+  fill: white;
+  display: inline;
+  height: 30px;
+  width: 30px;
+
 }
 
 /*

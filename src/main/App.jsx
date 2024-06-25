@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./App.css";
 import Game from "./Game/Game";
 import HeaderMovie from "./Header/Header";
@@ -25,7 +25,7 @@ function App() {
     console.log(e);
   };
 
-  const getApiData = async () => {
+  const getApiData = useCallback(async () => {
     try {
       const { data } = await axios.get(
         `https://disneymoviesapi.onrender.com/api/movies`
@@ -40,7 +40,7 @@ function App() {
     } catch (e) {
       setError("API DOWN");
     }
-  };
+  }, []);
 
   useEffect(() => {
     const storedData = getLocalStorage("disneyMovies");
