@@ -3,6 +3,7 @@ import { getLocalStorage, setLocalStorage } from "../Hooks";
 import Interaction from "../MovieCards/Interaction";
 import Button from "../Reusable-code/Button";
 import Answer from "./Answer";
+import Score from "./Score";
 
 const Game = ({ information, onToggle }) => {
   const [threeNumbers, setThreeNumbers] = useState();
@@ -88,10 +89,7 @@ const Game = ({ information, onToggle }) => {
 
   return (
     <div className="containerGame">
-      <div className="scores">
-        <p className="score">Score: {score}</p>
-        <p className="score highScore">High score: {highScore}</p>
-      </div>
+      <Score score={score} highScore={highScore} />
       <div className="containerQuestion">
         <Interaction
           love={question.love}
