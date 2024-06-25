@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useCount, useMakeList } from "../../Hooks";
 import ComeDown from "./ComeDown";
 import ComeDownList from "./ComeDownList";
 
@@ -9,54 +10,62 @@ const Counters = ({ information }) => {
     watched: false,
   });
 
-  const count = (type) => {
-    let countedArray = [];
-    countedArray = information.filter((item) => {
-      return item[type];
-    });
-    return countedArray;
-  };
+  const countWantToWatch = useCount("wantToWatch", information);
+  const countWatched = useCount("watched", information);
+  const countLove = useCount("love", information);
+  const listWantToWatch = useMakeList("wantToWatch", information);
+  const listWatched = useMakeList("watched", information);
+  const listLove = useMakeList("love", information);
+
+  //turned into custom hooks, was that necessary???
+  // const count = (type) => {
+  //   let countedArray = [];
+  //   countedArray = information.filter((item) => {
+  //     return item[type];
+  //   });
+  //   return countedArray;
+  // };
+
+  // const makeList = (type) => {
+  //   const _countedArray = count(type);
+  //   let list = _countedArray.map((item) => {
+  //     return item.title;
+  //   });
+  //   return list;
+  // };
 
   const changeView = (type) => {
     setDropdown({ [type]: !dropdown[type] });
   };
 
-  const makeList = (type) => {
-    const _countedArray = count(type);
-    let list = _countedArray.map((item) => {
-      return item.title;
-    });
-    return list;
-  };
-
   return (
     <div className="containerCounters">
       <p className="Counter" onClick={() => changeView("wantToWatch")}>
-        Want to watch: {count("wantToWatch").length} <ComeDown />
+        Want to watch: {countWantToWatch.length} <ComeDown />
       </p>
       {dropdown.wantToWatch && (
         <ul>
-          {makeList("wantToWatch").map((item, index) => (
+          {listWantToWatch.map((item, index) => (
             <ComeDownList key={index} listItem={item} />
           ))}
         </ul>
       )}
       <p className="Counter" onClick={() => changeView("watched")}>
-        Have watched: {count("watched").length} <ComeDown />
+        Have watched: {countWatched.length} <ComeDown />
       </p>
       {dropdown.watched && (
         <ul>
-          {makeList("watched").map((item, index) => (
+          {listWatched.map((item, index) => (
             <ComeDownList key={index} listItem={item} />
           ))}
         </ul>
       )}
       <p className="Counter" onClick={() => changeView("love")}>
-        Love: {count("love").length} <ComeDown />
+        Love: {countLove.length} <ComeDown />
       </p>
       {dropdown.love && (
         <ul>
-          {makeList("love").map((item, index) => (
+          {listLove.map((item, index) => (
             <ComeDownList key={index} listItem={item} />
           ))}
         </ul>

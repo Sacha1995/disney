@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Game from "./Game/Game";
 import HeaderMovie from "./Header/Header";
+import { getLocalStorage, setLocalStorage } from "./Hooks";
 import Movies from "./MovieCards/Movies";
 import Buttons from "./Navigation/Buttons";
 
@@ -35,13 +36,19 @@ function App() {
         item.love = false;
       });
       setDisneyMovies(data);
+      setLocalStorage("disneyMovies", data);
     } catch (e) {
       setError("API DOWN");
     }
   };
 
   useEffect(() => {
-    getApiData();
+    const storedData = getLocalStorage("disneyMovies");
+    if (storedData) {
+      setDisneyMovies(storedData);
+    } else {
+      getApiData();
+    }
   }, []);
 
   const onToggle = (id, control) => {
@@ -154,7 +161,7 @@ function App() {
         console.log("something went wrong with the sorting");
         break;
     }
-
+    setLocalStorage("disneyMovies", filtered);
     return filtered;
   };
 
@@ -175,12 +182,7 @@ function App() {
   }
 
   if (!disneyMovies) {
-    return (
-      <p className="message">
-        Loading, sorry this may take a little bit... If it is taking very long,
-        try reloading the page.
-      </p>
-    );
+    return <p className="message">Loading...</p>;
   }
 
   const filteredList = getFilteredAndSorted();

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { getLocalStorage, setLocalStorage } from "../Hooks";
 import Interaction from "../MovieCards/Interaction";
 import Button from "../Reusable-code/Button";
 import Answer from "./Answer";
@@ -8,7 +9,15 @@ const Game = ({ information, onToggle }) => {
   const [question, setQuestion] = useState();
   let [nextQuestion, setNextQuestion] = useState(0);
   let [score, setScore] = useState(0);
+  let [highScore, setHighScore] = useState(0);
   let [trackAnswers, setTrackAnswers] = useState(["", "", ""]);
+
+  useEffect(() => {
+    const storedHighScore = getLocalStorage("highScore");
+    if (storedHighScore) {
+      setHighScore(storedHighScore);
+    }
+  }, []);
 
   useEffect(() => {
     if (information && information.length > 0) {
@@ -47,6 +56,10 @@ const Game = ({ information, onToggle }) => {
     if (e.title === question.title) {
       let _score = score + 1;
       setScore(_score);
+      if (_score > highScore) {
+        setHighScore(_score);
+        setLocalStorage("highScore", _score);
+      }
       const _trackAnswers = trackAnswers.map((item, i) => {
         if (i === index) {
           return "true";
@@ -75,7 +88,10 @@ const Game = ({ information, onToggle }) => {
 
   return (
     <div className="containerGame">
-      <p className="score">Your score: {score}</p>
+      <div className="scores">
+        <p className="score">Score: {score}</p>
+        <p className="score highScore">High score: {highScore}</p>
+      </div>
       <div className="containerQuestion">
         <Interaction
           love={question.love}

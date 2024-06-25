@@ -15,7 +15,6 @@ const Answer = ({ className, info, onCheck, index, animation }) => {
         onCheck(info, index);
       }}
     >
-      {console.log(animation)}
       <p>{info.title}</p>
       <img src={info.image} alt={info.title} />
       {animation[index] === "true" && <Sparkles flicker={false} />}

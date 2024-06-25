@@ -6,7 +6,6 @@ const Header = ({ information, callback, nav }) => {
   return (
     <div className="containerHeader">
       <Counters information={information} />
-      {/* {nav.game && <Score />} */}
       {nav.movies && (
         <div className="containerFilter">
           <Search callback={callback} />
