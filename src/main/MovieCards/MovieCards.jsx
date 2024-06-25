@@ -16,6 +16,7 @@ const MovieCards = (item) => {
     wantToWatch,
     watched,
     movieId,
+    value,
   } = item.information;
   return (
     <div className="movieCard">
@@ -31,7 +32,12 @@ const MovieCards = (item) => {
         <div className="containerInfoText">
           <Title title={title} />
           <Year year={year} />
-          <Ratings rating={rating} />
+          <Ratings
+            rating={parseInt(rating, 10)}
+            onToggle={item.onToggle}
+            id={movieId}
+            value={value}
+          />
           <Summary summary={summary} />
         </div>
       </div>

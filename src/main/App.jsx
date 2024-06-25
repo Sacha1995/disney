@@ -6,6 +6,7 @@ import HeaderMovie from "./Header/Header";
 import { getLocalStorage, setLocalStorage } from "./Hooks";
 import Movies from "./MovieCards/Movies";
 import Buttons from "./Navigation/Buttons";
+import "./fonts.css";
 
 function App() {
   const [disneyMovies, setDisneyMovies] = useState();
@@ -13,6 +14,7 @@ function App() {
   const [nav, setNav] = useState({
     game: true,
     movies: false,
+    value: 0,
   });
   const [formElement, setFormElement] = useState({
     searchStr: "",
@@ -51,7 +53,7 @@ function App() {
     }
   }, []);
 
-  const onToggle = (id, control) => {
+  const onToggle = (id, control, value) => {
     const _disneyMovies = [...disneyMovies];
 
     const indexOf = _disneyMovies.findIndex((item) => {
@@ -68,6 +70,9 @@ function App() {
         break;
       case "watched":
         _disneyMovies[indexOf].watched = !_disneyMovies[indexOf].watched;
+        break;
+      case "value":
+        _disneyMovies[indexOf].value = value;
         break;
       default:
         console.log("Something has gone wrong with onToggle");

@@ -1,21 +1,5 @@
 /*
 **************************
-        fonts
-**************************
-*/
-@font-face {
-  font-family: "Disney";
-  src: url("./font/waltograph42.woff2");
-}
-@font-face {
-  font-family: "Disney2";
-  src: url("./font/waltographUI.woff2");
-}
-/*
-************END***********
-*/
-/*
-**************************
         general
 **************************
 */
@@ -87,13 +71,19 @@ input {
   width: 90%;
 }
 
-ul {
-  animation: slide-in 2s fade-in;
+.off {
+  display: none;
 }
 
-@keyframes slide-in {
+.on {
+  display: block;
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+}
+
+@keyframes slideIn {
   0% {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     opacity: 0.5;
   }
   100% {
@@ -271,9 +261,6 @@ ul {
   flex-direction: row-reverse;
   gap: 10px;
 }
-.containerInfo .year {
-  margin-bottom: 10px;
-}
 .containerInfo img {
   height: 150px;
   border: white 1px solid;
@@ -285,11 +272,19 @@ ul {
   display: inline;
 }
 
-.star {
-  fill: white;
-  display: inline;
-  height: 30px;
-  width: 30px;
+.containerRating {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.yourRating {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+.yourRating legend {
+  text-decoration: underline;
 }
 
 /*
