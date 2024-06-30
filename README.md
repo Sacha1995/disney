@@ -1,3 +1,6 @@
+![Assignments - Copy](https://github.com/Sacha1995/disney/assets/169173663/f297445d-90c2-4ebb-80d3-a8960ab04de1)
+[Redux Toolkit Shop]( https://github.com/Sacha1995/redux-toolbox-shop) | [Form with validator](https://github.com/Sacha1995/form-validator) | [Simpsons Quotes]( https://github.com/Sacha1995/simpsons) | [Weather Website]( https://github.com/Sacha1995/Weather-Website) | [Traffic Light]( https://github.com/Sacha1995/traffic-light) | [Homage Piece]( https://github.com/Sacha1995/thirdspacelearning)
+
 # Disney movie game
 
 I made a Disney themed game which allows the user to start a game where they must put the movie to the description. To further improve my skills with react I decided to create an interactive experience where the viewer can do a little more than searching or ordering. This taught me a lot about the fundamentals of react and also how to organise my work efficiently. The tech that I used was: React, sass, html, css.
