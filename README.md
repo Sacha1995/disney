@@ -1,8 +1,11 @@
-# Getting Started with Create React App
+# Disney movie game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I made a Disney themed game which allows the user to start a game where they must put the movie to the description. To further improve my skills with react I decided to create an interactive experience where the viewer can do a little more than searching or ordering. This taught me a lot about the fundamentals of react and also how to organise my work efficiently. The tech that I used was: React, sass, html, css.
+
+![gameplay-disney](https://github.com/Sacha1995/disney/assets/169173663/41e92b34-9e56-4a49-a317-b0e51a971cd2)
 
 ## Available Scripts
+
 
 In the project directory, you can run:
 
