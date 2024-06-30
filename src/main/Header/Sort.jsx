@@ -19,6 +19,8 @@ const Sort = ({ callback }) => {
           "Watched",
           "Rating: low to high",
           "Rating: high to low",
+          "Your rating: low to high",
+          "Your rating: high to low",
         ]}
       />
     </div>

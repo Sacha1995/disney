@@ -78,7 +78,7 @@ function App() {
         console.log("Something has gone wrong with onToggle");
         break;
     }
-
+    setLocalStorage("disneyMovies", _disneyMovies);
     setDisneyMovies(_disneyMovies);
   };
 
@@ -162,11 +162,32 @@ function App() {
           return 0;
         });
         break;
+      case "Your rating: high to low":
+        filtered.sort((a, b) => {
+          if (a.value < b.value) {
+            return 1;
+          } else if (a.value > b.value) {
+            return -1;
+          }
+          return 0;
+        });
+        break;
+      case "Your rating: low to high":
+        filtered.sort((a, b) => {
+          console.log(a.value, b.value);
+          if (a.value > b.value) {
+            return 1;
+          } else if (a.value < b.value) {
+            return -1;
+          }
+          return 0;
+        });
+        break;
       default:
         console.log("something went wrong with the sorting");
         break;
     }
-    setLocalStorage("disneyMovies", filtered);
+
     return filtered;
   };
 
@@ -201,14 +222,19 @@ function App() {
       />
       <h1>Disney Classics</h1>
       <Buttons onNav={onNav} />
+
       {nav.game && (
         <Game information={getFilteredAndSorted()} onToggle={onToggle} />
       )}
-      {formElement.searchStr !== "" && !filteredList.length && (
-        <p className="message">There are no matches.</p>
-      )}
+
       {nav.movies && (
-        <Movies information={getFilteredAndSorted()} onToggle={onToggle} />
+        <Movies
+          information={getFilteredAndSorted()}
+          onToggle={onToggle}
+          callback={onFormEvent}
+          searchStr={formElement.searchStr}
+          filteredList={filteredList}
+        />
       )}
     </>
   );

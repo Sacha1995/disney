@@ -51,7 +51,7 @@ h1 {
 }
 
 .containerFilter {
-  flex-basis: 50%;
+  margin-top: 20px;
 }
 
 input,
@@ -67,8 +67,9 @@ input {
 }
 
 input {
-  margin-bottom: 10px;
-  width: 90%;
+  display: block;
+  margin: 0px auto 10px auto;
+  width: 80%;
 }
 
 .off {
@@ -158,6 +159,7 @@ input {
 .containerAnswers {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .containerQuestion .interaction {
@@ -236,9 +238,9 @@ input {
 .movieCard H2 {
   font-family: "Disney";
   letter-spacing: 2px;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 100;
-  line-height: 50px;
+  line-height: 42px;
   max-width: 350px;
 }
 .movieCard .interaction {
@@ -267,6 +269,9 @@ input {
   align-self: center;
   margin-top: 50px;
 }
+.containerInfo .year {
+  margin-bottom: 5px;
+}
 .containerInfo .rating {
   text-decoration: underline;
   display: inline;
@@ -276,6 +281,7 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  margin-bottom: 5px;
 }
 
 .yourRating {
