@@ -35,6 +35,7 @@ h1 {
 */
 .containerHeader {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin: 10px;
   gap: 10px;
@@ -51,13 +52,17 @@ h1 {
 }
 
 .containerFilter {
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 input,
 select,
 option {
   color: black;
+}
+
+.dropdown {
+  text-align: center;
 }
 
 select,
@@ -70,6 +75,7 @@ input {
   display: block;
   margin: 0px auto 10px auto;
   width: 80%;
+  max-width: 480px;
 }
 
 .off {
@@ -123,7 +129,7 @@ input {
 }
 
 .containerGame .containerQuestion {
-  max-width: 450px;
+  width: 80%;
   margin: 20px auto;
   padding: 10px 20px 20px 20px;
   border: white 2px solid;
@@ -158,6 +164,7 @@ input {
 
 .containerAnswers {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;
 }
@@ -229,19 +236,19 @@ input {
 .movieCard {
   max-width: 450px;
   position: relative;
-  margin: 20px auto;
+  margin: 20px;
   padding: 10px 20px 20px 20px;
   border: white 2px solid;
   border-radius: 20px;
   background: linear-gradient(0deg, rgba(17, 69, 150, 0.8) 23%, rgba(7, 11, 48, 0.8) 88%);
 }
-.movieCard H2 {
+.movieCard h2 {
   font-family: "Disney";
   letter-spacing: 2px;
   font-size: 40px;
   font-weight: 100;
   line-height: 42px;
-  max-width: 350px;
+  margin-top: 30px;
 }
 .movieCard .interaction {
   position: absolute;
@@ -260,14 +267,13 @@ input {
 
 .containerInfo {
   display: flex;
-  flex-direction: row-reverse;
-  gap: 10px;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 5px;
 }
 .containerInfo img {
   height: 150px;
   border: white 1px solid;
-  align-self: center;
-  margin-top: 50px;
 }
 .containerInfo .year {
   margin-bottom: 5px;
@@ -282,10 +288,10 @@ input {
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 5px;
+  flex-wrap: wrap;
 }
 
 .yourRating {
-  margin-right: 20px;
   display: flex;
   align-items: center;
 }
@@ -293,6 +299,134 @@ input {
   text-decoration: underline;
 }
 
+/*
+************END***********
+*/
+/*
+**************************
+      media queries
+**************************
+*/
+@media (min-width: 450px) {
+  .containerRating .yourRating {
+    margin-right: 20px;
+  }
+}
+@media (min-width: 560px) {
+  .movieCard {
+    max-width: 450px;
+    margin: 20px auto;
+  }
+  .movieCard h2 {
+    margin-top: 0px;
+    max-width: 350px;
+  }
+  .containerRating .yourRating {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+  }
+  .containerHeader {
+    flex-direction: row;
+    max-width: 700px;
+  }
+  .containerFilter {
+    margin-top: 10px;
+  }
+  .dropdown {
+    text-align: left;
+  }
+  .containerInfo {
+    flex-direction: row-reverse;
+    gap: 10px;
+  }
+  .containerInfo img {
+    margin-top: 50px;
+  }
+  .containerInfo .containerCounters {
+    flex-basis: 50%;
+  }
+}
+@media (min-width: 589px) {
+  .containerFilter {
+    margin-top: 20px;
+  }
+}
+@media (min-width: 530px) {
+  .containerGame .containerQuestion {
+    max-width: 450px;
+    margin: 20px auto;
+  }
+}
+@media (min-width: 700px) {
+  h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+  }
+}
+@media (min-width: 750px) {
+  .containerHeader {
+    margin: 10px auto;
+  }
+}
+@media (min-width: 750px) {
+  .scores {
+    right: 8%;
+  }
+}
+@media (min-width: 750px) {
+  .scores {
+    right: 12%;
+  }
+}
+@media (min-width: 1000px) {
+  .containerGame .containerQuestion {
+    max-width: 739px;
+  }
+  .containerGame .answer {
+    width: 205px;
+    max-width: none;
+    align-items: center;
+  }
+}
+@media (min-width: 1070px) {
+  .moviesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0px 10px;
+    max-width: 1050px;
+    margin: 0px auto;
+  }
+  .containerHeader {
+    max-width: 1020px;
+  }
+  .scores {
+    right: 5%;
+  }
+}
+@media (min-width: 1200px) {
+  .scores {
+    right: 12%;
+  }
+}
+@media (min-width: 1640px) {
+  .moviesContainer {
+    gap: 0px 10px;
+    max-width: 1590px;
+    margin: 0px auto;
+  }
+  .containerHeader {
+    max-width: none;
+    padding: 0px 20px;
+  }
+  h1 {
+    margin-top: -70px;
+  }
+  .scores {
+    right: 20px;
+  }
+}
 /*
 ************END***********
 *//*# sourceMappingURL=App.css.map */
