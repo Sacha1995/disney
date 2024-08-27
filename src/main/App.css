@@ -437,6 +437,9 @@ input {
   .scores {
     right: 20px;
   }
+  .containerGame .next {
+    top: 600px;
+  }
 }
 /*
 ************END***********

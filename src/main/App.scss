@@ -495,7 +495,6 @@ input {
 }
 
 @media (min-width: 1640px) {
-
   .moviesContainer {
     gap: 0px 10px;
     max-width: 1590px;
@@ -513,6 +512,10 @@ input {
 
   .scores {
     right: 20px;
+  }
+
+  .containerGame .next {
+    top: 600px;
   }
 }
 
