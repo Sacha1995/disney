@@ -12,6 +12,7 @@ const Game = ({ information, onToggle }) => {
   let [score, setScore] = useState(0);
   let [highScore, setHighScore] = useState(0);
   let [trackAnswers, setTrackAnswers] = useState(["", "", ""]);
+  const [answeredCorrectly, setAnsweredCorrectly] = useState(false);
 
   useEffect(() => {
     const storedHighScore = getLocalStorage("highScore");
@@ -40,11 +41,15 @@ const Game = ({ information, onToggle }) => {
   }
 
   const onNextQuestion = () => {
+    if (!answeredCorrectly) {
+      return;
+    }
     let add = nextQuestion + 1;
 
     const _trackAnswers = trackAnswers.map((item, i) => {
       return "";
     });
+    setAnsweredCorrectly(false);
     setTrackAnswers(_trackAnswers);
     setNextQuestion(add);
   };
@@ -54,9 +59,13 @@ const Game = ({ information, onToggle }) => {
   };
 
   const onCheck = (e, index) => {
+    if (answeredCorrectly) {
+      return;
+    }
     if (e.title === question.title) {
       let _score = score + 1;
       setScore(_score);
+      setAnsweredCorrectly(true);
       if (_score > highScore) {
         setHighScore(_score);
         setLocalStorage("highScore", _score);

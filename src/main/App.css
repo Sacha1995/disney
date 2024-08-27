@@ -186,7 +186,7 @@ input {
 }
 
 .next {
-  margin: 0px auto;
+  margin: 0px auto 40px auto;
   display: block;
 }
 
@@ -312,6 +312,14 @@ input {
     margin-right: 20px;
   }
 }
+@media (min-width: 510px) {
+  .next {
+    position: absolute;
+    top: 750px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 @media (min-width: 560px) {
   .movieCard {
     max-width: 450px;
@@ -387,6 +395,9 @@ input {
     width: 205px;
     max-width: none;
     align-items: center;
+  }
+  .containerGame .next {
+    top: 680px;
   }
 }
 @media (min-width: 1070px) {
