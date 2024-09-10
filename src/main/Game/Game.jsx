@@ -99,6 +99,10 @@ const Game = ({ information, onToggle }) => {
   return (
     <div className="containerGame">
       <Score score={score} highScore={highScore} />
+      <p className="description">
+        Welcome to the Disney Classics game. Do you know which movie is being
+        described?
+      </p>
       <div className="containerQuestion">
         <Interaction
           love={question.love}
